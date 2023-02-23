@@ -1,4 +1,6 @@
 import type { GatsbyConfig } from "gatsby";
+const path = require('path');
+
 
 const config: GatsbyConfig = {
   siteMetadata: {
@@ -21,7 +23,24 @@ const config: GatsbyConfig = {
       "path": "./src/images/"
     },
     __key: "images"
-  }, {
+  }, 
+  {
+    resolve: 'gatsby-plugin-alias-imports',
+    options: {
+      alias: {
+        '@assets': path.resolve(__dirname, 'src/assets'),
+        '@components': path.resolve(__dirname, 'src/components'),
+        '@constants': path.resolve(__dirname, 'src/constants'),
+        '@helpers': path.resolve(__dirname, 'src/helpers'),
+        '@hooks': path.resolve(__dirname, 'src/hooks'),
+        '@pages': path.resolve(__dirname, 'src/pages'),
+        '@style': path.resolve(__dirname, 'src/style'),
+        '@utils': path.resolve(__dirname, 'src/utils'),
+      },
+      extensions: ['.ts', '.js', '.tsx', '.jsx'],
+    },
+  },
+  {
     resolve: 'gatsby-source-filesystem',
     options: {
       "name": "pages",
