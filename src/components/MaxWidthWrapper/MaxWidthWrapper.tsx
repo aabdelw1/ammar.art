@@ -1,7 +1,8 @@
 
 import { styled } from '@style';
-
 import { READING_WIDTH } from '@constants';
+
+console.log({READING_WIDTH})
 
 const MaxWidthWrapper = styled('div', {
   position: 'relative',
